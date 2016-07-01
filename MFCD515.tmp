@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin-top:0px;
+}
+
+body{
+	background-color:#000000;
+	background-image:url(assets/background.jpg);
+	background-repeat:repeat-y;
+	background-position:center;
+	color:#FFFFFF;
+}
+
+#container{
+	width: 80%;
+	min-height: 600px;	
+	margin: 0 auto;
+	background-color: #666;
+}
+
+#banner{
+	margin:0 auto;
+	background-color:#000;
+}
+
+#nav{
+	font-size:large;
+	padding-left:50px;
+	margin: 0 auto;
+	background-color: #999;
+	text-align:center;
+	position: relative;
+}
+
+#nav ul
+{
+	width:920px;
+	margin:0 auto;
+	display:block;
+	list-style-type: none;
+	
+}
+
+#nav ul li
+{
+	position: relative;
+	float:left;
+	list-style:none;
+	height:40px;
+	border:thin solid #000;
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px 0px #333;	
+	background-color: #FFF;
+}
+
+#nav ul li a:link, #nav li a:visited
+{
+	Display: block;
+	padding: 10px 10px 10px 10px;
+	color: #000;
+	text-decoration: none;
+	
+}
+
+#nav ul li a:hover
+{
+	background-color:#000;
+	color:#FFF;
+	border:thin solid #FFF;
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px 0px #333;
+	
+}
+
+#nav ul li ul {
+     display: none
+}
+ 
+#nav ul li:hover ul {
+     display: block;
+     position: absolute;
+}
+
+#nav ul li:hover ul li a {
+     display:block;
+}
+
+#content{
+	width: 960px;
+	min-height: 600px;	
+	margin: 0 auto;
+	background-color: #666;
+	clear:both;
+}
+
+#footer{
+	text-align:center;
+	background-color: #000;
+	height:30px;
+	color: #FFF;
+	margin: 0 auto;
+}
+
+h1 {
+	color:#FFFFFF;
+	font-weight:bold;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:x-large;
+	text-decoration:underline overline;
+	text-align:center;
+}
+
+P {
+	color:#FFFFFF;
+	padding-left: 10px;
+}
+
+.lists{
+	margin: 0 auto;
+	width: 80%;
+	background-color: #009;
+	clear:both;
+	border:thin solid #000000;
+	border-radius: 10px;
+}
+
+.lists header{
+	text-align:center;
+	height:30px;
+	background-color: #000000;
+	margin: 0 auto;
+	border-radius: 10px;
+	color:#FFFFFF;
+	border:thin solid #FFFFFF;
+	font: bold 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif 
+}
+
+.lists P{ padding: 10px;
+}
+
+#left{
+	float:left;
+	width:300px;	
+	background:#FFF;
+	color:#000;
+	font-size:16px;
+}
+
+#left h1{
+	color:#000;
+	padding:5px;
+	padding-top:15px;
+}
+
+#left p{
+	color:#000;
+	padding-right:20px;
+	padding-left:20px;
+}
+
+#right{
+	float:right;
+	width:600px;
+}
+
+#centered{
+	padding-right:150px;
+	padding-left:150px;	
+}
