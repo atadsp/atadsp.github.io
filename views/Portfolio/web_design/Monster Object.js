@@ -50,16 +50,6 @@
       </div>
 	</div> <br>
     
-	<div class="row">
-   	  <div class="col-sm-4 stuff">
-        	<h3> Monster List</h3>
-            <p> This is just a simple application that allows you to create a list of monsters and compair their size and weights. </p>
-      </div>
-        <div class="col-sm-8 stuff">
-        	<h3> <a href="web_design/Monster_Object.html" target="_blank"><img src="../../assets/img/portfolio/monster_list.jpg" class="img-responsive"> </a> </h3>
-      </div>
-	</div> <br>
-    
 </div></div>
 
 <script src="../../scripts/scripts.js" type="text/javascript"> </script>

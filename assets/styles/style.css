@@ -3,9 +3,17 @@
 
 body{
 	background-image:url(../img/background.jpg);
-	margin: 10px;
+	margin-bottom: 10px;
+	margin-left:10px;
+	margin-right:10px;
 }
 
+input
+{
+	color:#000000;
+	background:#CCCCCC;
+	border-radius:4px;
+}
 #body{
 	background-color:#000;
 	color:#FFFFFF;
