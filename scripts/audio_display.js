@@ -9,9 +9,12 @@ var audio_e = [];
   var bar_width;
   var bar_height;
   var bars;
+  
 var srcs = ["https://atadsp.github.io/assets/audio/The_Adventures_of_Andrew_Alexander_Abraham_and_Fiona_1.mp3", "https://atadsp.github.io/assets/audio/The_Adventures_of_Andrew_Alexander_Abraham_and_Fiona_1.mp3"];
 
-for(var j = 0; j<1; j++){
+var n = 1;
+
+for(var j = 0; j<n; j++){
 audio_e.push(new Audio());
 audio_e[j].src = srcs[j];
 audio_e[j].controls = true;
@@ -24,7 +27,7 @@ audio_e[j].crossOrigin = "anonymous";
 window.addEventListener("load", initMp3Player, false);
 
 function initMp3Player(){
-  for(var j = 0; j < 1; j++){
+  for(var j = 0; j < n; j++){
     document.getElementById('audio_box_id' + (j + 1)).appendChild(audio_e[j]);
     context.push(new AudioContext());
     analyser.push(context[j].createAnalyser());
@@ -40,7 +43,7 @@ function initMp3Player(){
 //frameLooper animates nay style of graphics at 60fps based on browser
 function frameLooper(){
   window.requestAnimationFrame(frameLooper);
- for(var j = 0; j < 1; j++){
+ for(var j = 0; j < n; j++){
   fbc_array.push(new Uint8Array(analyser[j].frequencyBinCount));
   analyser[j].getByteFrequencyData(fbc_array[j]);
   ctx[j].clearRect(0, 0, canvas[j].width, canvas[j].height);
