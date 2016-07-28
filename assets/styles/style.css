@@ -121,6 +121,10 @@ input
 		width:150px;
 }
 
+.backup {
+	font-size:small;	
+}
+
 
 /* Css Cross fade for main page */
 #crossfade > img { 
@@ -210,6 +214,7 @@ input
     100% { opacity: 0 }
 }
 
+/* MP3 player styling */
 div.mp3_player{
   width:510px; 
   height:70px; 
