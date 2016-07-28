@@ -10,9 +10,9 @@ var audio_e = [];
   var bar_height;
   var bars;
   
-var srcs = ["https://atadsp.github.io/assets/audio/The_Adventures_of_Andrew_Alexander_Abraham_and_Fiona_1.mp3", "https://atadsp.github.io/assets/audio/The_Adventures_of_Andrew_Alexander_Abraham_and_Fiona_1.mp3"];
+var srcs = ["https://atadsp.github.io/assets/audio/The_Adventures_of_Andrew_Alexander_Abraham_and_Fiona_1.mp3", "https://atadsp.github.io/assets/audio/Star_trek_IV.mp3"];
 
-var n = 1;
+var n = 2;
 
 for(var j = 0; j<n; j++){
 audio_e.push(new Audio());
