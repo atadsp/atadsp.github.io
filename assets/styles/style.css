@@ -17,9 +17,11 @@ input
 #body{
 	background-color:#000;
 	color:#FFFFFF;
-	padding: 5px 10px 10px 10px;
 }
 
+.content{
+	margin:60px;
+}
 .stuff{	
 	background-color:000;
 	color:#FFF;
@@ -31,14 +33,12 @@ input
 .stuff h3{
 	background-color:#FFFFFF;
 	color:#000000;
-	padding:10px;
 	border-radius: 10px;
 	border:thin solid #666;	
 }
 
 #nav{
 	font-size:large;
-	padding-left:50px;
 	margin: 0 auto;
 	background-color:#333;
 	text-align:center;
@@ -70,7 +70,7 @@ input
 	background-color:#000;
 	color:#FFF;
 	width:150px;
-	margin: 0px 0px 0px 1px;
+	margin: 0px 0px 0px 4px;
 	z-index: 1;
 }
 
