@@ -185,7 +185,7 @@ Character.prototype.social103 = function(){
 			this.charSocMod += 5;
 			var nobleExTraitRan = Math.floor(Math.random() * (2 -1 + 1) + 1);
 			if (nobleExTraitRan === 1){
-				this.exoticPersonalityTrait649();
+				this.exoticTraits.push('E');
 			}
 		if (this.charEnviroment === "Wilderness"){
 			this.wildernessSurvivalRank += -1;
@@ -439,7 +439,7 @@ Character.prototype.family106 = function (){
 // infinite loop somewhere in 107 and generatenpc.js
 Character.prototype.siblings107 = function(){
 	var siblingRan = Math.floor(Math.random() * (20 -1 + 1) + 1);
-		console.log(siblingRan);
+		// console.log(siblingRan);
 	// if(siblingRan < 3){
 	// 	if(this.bastardSiblings < 1){
 	// 	this.wealth += 0.3;
@@ -776,6 +776,7 @@ Character.prototype.unusualBirth112 = function(){
 	for(i = 0; i< adultran; i++){
 		this.significantAdultEvents217();
 	}
+	this.alignmentControl();
 	this.postChar();
 };
 

@@ -183,3 +183,7 @@ Character.prototype.physicalAfflctions874 = function(eventchain){
 		this.birthEvent.push('As a result of his godly heritage ' + this.charName + ' was born with ' + physicalAfflictions);
 	}
 };
+
+Character.prototype.unusualSkill876 = function(){
+	console.log('Unusual Skill');
+};
