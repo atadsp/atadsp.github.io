@@ -88,18 +88,30 @@ function Character(){
 	this.exoticTraits = [];
 	this.neutralTraits = [];
 	this.randomTraits = [];
+	this.totalLight = 0;
+	this.totalDark = 0;
 	this.traits = [];
 	this.traitStrength = [];
 	//other stuff
 	this.loverDeath = false;
 	this.runaway = false;
 	//npc stuff
+	this.playerNote = [];
 	this.note = [];
 }
 var player = new Character();
 
 Character.prototype.generateCharacter = function(){
-	$( "#npcInfo").empty();
+	//clear out the tabs between generations
+	$("#characterInfo").empty();
+	$("#birthEvent").empty();
+	$("#birthInfo").empty();
+	$("#skillList").empty();
+	$("#attirubteBonus").empty();
+	$("#specialAbilities").empty();
+	$("#traitInfo").empty();
+	$("#npcInfo").empty();
+	$("#playerNotes").empty();
 	this.charCultMod = 0;
 	this.charSocMod = 0;
 	this.isNoble = false;
@@ -159,22 +171,23 @@ Character.prototype.generateCharacter = function(){
 	this.randomTraits.length = 0;
 	this.traits.length = 0;
 	this.traitStrength.length = 0;
+	this.totalLight = 0;
+	this.totalDark = 0;
+	this.playerNote.length = 0;
 	this.charName = $("#charName").val();
 	this.isPlayerCharacter = true;
 	this.setGender();
 };
 
 Character.prototype.postChar = function(){
-	if (this.isPlayerCharacter === true){
-//clear out the tabs between generations
-$("#characterInfo").empty();
-$("#birthEvent").empty();
-$("#birthInfo").empty();
-$("#skillList").empty();
-$("#attirubteBonus").empty();
-$("#specialAbilities").empty();
-$("#traitInfo").empty();
-
+	$("#characterInfo").empty();
+	$("#birthEvent").empty();
+	$("#birthInfo").empty();
+	$("#skillList").empty();
+	$("#attirubteBonus").empty();
+	$("#specialAbilities").empty();
+	$("#traitInfo").empty();
+	$("#playerNotes").empty();
 //main character information
 $( "#characterInfo" ).append( "<div id='name'>Name: " + this.charName + "</div>" );
 $( "#characterInfo" ).append( "<div id='gender'>Gender: " + this.charGender + "</div>" );
@@ -265,5 +278,7 @@ for(i=0; i < this.traits.length; i++){
 	$("#traitInfo").append("<li class='traitLI'>" + this.traits[i] + ": " + this.traitStrength[i] + "/100 </li>");
 }
 
+for(i=0; i < this.playerNote.length; i++){
+	$("#playerNotes").append("<div class='note'>" + this.playerNote[i] + "</div");
 }
 };
