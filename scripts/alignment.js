@@ -15,9 +15,11 @@ for(i = 0; i < this.randomTraits.length; i++){
 }
 for(i = 0; i < this.lightSideTraits.length; i++){
 	this.lightSideTrait647();
+	this.totalLight++;
 }
 for(i = 0; i < this.darkSideTraits.length; i++){
 	this.darksideTrait648();
+	this.totalDark++;
 }
 for(i = 0; i < this.neutralTraits.length; i++){
 	this.neutralTrait318B();
@@ -989,9 +991,265 @@ Character.prototype.darksideTrait648 = function(){
 };
 
 Character.prototype.exoticPersonalityTrait649 = function(){
-	console.log("This dude is exotic");
+	var d20 = Math.floor(Math.random() * (20 -1 + 1) + 1);
+	var d3 = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	d3++;
+	if(d20 < 5){
+		this.mentalAfflictions649b();
+	} else if (d20 < 8 && d20 > 4){
+		this.phobia649c();
+	} else if (d20 < 11 && d20 > 7){
+		this.allergy649d();
+	} else if (d20 < 18 && d20 > 10){
+		this.behaviorTag649e();
+	} else if (d20 === 18 || d20 === 19){
+		this.sexualDisorder649f();
+	} else if (d20 > 19){
+		for(i = 0; i < d3; i++){
+			this.exoticPersonalityTrait649();
+		}
+	}
 };
 
 Character.prototype.mentalAfflictions649b = function(){
-	console.log("This dude is mental");
+	var affliction = Math.floor(Math.random() * (13 -1 + 1) + 1);
+	var d2 = Math.floor(Math.random() * (2 -1 + 1) + 1);
+	var d3 = Math.floor(Math.random() * (3 -1 + 1) + 1);
+	var d4 = Math.floor(Math.random() * (4 -1 + 1) + 1);
+	var d6 = Math.floor(Math.random() * (6 -1 + 1) + 1);
+
+	switch(affliction){
+		case 1:
+		if(this.traits.includes('Multiple Personalities') === false){
+		this.traits.push('Multiple Personalities');
+		this.specialBonus.push(this.charName + ' has ' + d3 + ' alternante personalities, litterially becoming another person.');
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 2:
+		if(this.traits.includes('Compulsive Lying') === false){
+		this.traits.push('Compulsive Lying');
+		this.totalDark ++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 3:
+		if(this.traits.includes('Paranoia') === false){
+		this.traits.push('Paranoia');
+		this.totalDark ++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 4:
+		if(this.traits.includes('Hallucinations') === false){
+		this.traits.push('Hallucinations');
+		this.specialBonus.push(this.charName + " sees unreal visions and distortions of reality. Each occurance has a 10% chance to render " + this.objectivePronoun + " temporarily comatose.");
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 5:
+		this.phobia649c();
+		break;
+
+		case 6:
+		if(this.traits.includes('Manic-depressive') === false){
+		this.traits.push('Manic-depressive');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 7:
+		if(this.traits.includes('Hypochondria') === false){
+		this.traits.push('Hypochondria');
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 8:
+		case 9:
+		if(this.traits.includes('Depression') === false){
+		this.traits.push('Depression');
+		Math.round(this.weaponRank / 2);
+		Math.round(this.meleeWeaponRank / 2);
+		Math.round(this.missileWeaponRank / 2);
+		Math.round(this.wildernessSurvivalRank / 2);
+		Math.round(this.urbanSurvivalRank / 2);
+		Math.round(this.huntingGatheringRank / 2);
+		Math.round(this.ridingRank / 2);
+		Math.round(this.streetFightRank / 2);
+		Math.round(this.stealthRank / 2);
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 10:
+		case 11:
+			switch(d6){
+				case 1:
+					switch(d2){
+						case 1:
+						if(this.traits.includes('Obession: Hate of Non-Humans') === false){
+						this.traits.push('Obession: Hate of Non-Humans');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+						case 2:
+						if(this.traits.includes('Obession: Hate of Monsters') === false){
+						this.traits.push('Obession: Hate of Monsters');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+					}
+				break;
+
+				case 2:
+				if(this.traits.includes('Obession: Need to Destroy') === false){
+				this.traits.push('Obession: Need to Destroy');
+				this.totalDark++;
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 3:
+				if(this.traits.includes('Obession: Superstion') === false){
+				this.traits.push('Obession: Superstion');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 4:
+				if(this.traits.includes('Obession: Cleanliness') === false){
+				this.traits.push('Obession: Cleanliness');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+
+				case 5:
+					switch(d3){
+						case 1:
+						if(this.traits.includes('Obession: Collecting Gold') === false){
+						this.traits.push('Obession: Collecting Gold');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+
+						case 2:
+						if(this.traits.includes('Obession: Collecting Animals') === false){
+						this.traits.push('Obession: Collecting Animals');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+
+						case 3:
+						if(this.traits.includes('Obession: Collecting Beautiful Things') === false){
+						this.traits.push('Obession: Collecting Beautiful Things');
+						} else {
+							this.mentalAfflictions649b();
+						}
+						break;
+					}
+				break;
+
+				case 6:
+				if(this.traits.includes('Obession: Helping Others') === false){
+				this.traits.push('Obession: Helping Others');
+				} else {
+					this.mentalAfflictions649b();
+				}
+				break;
+			}
+		break;
+
+		case 12:
+		if(this.traits.includes('Kleptomania') === false){
+		this.traits.push('Kleptomania');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+
+		case 13:
+		if(this.traits.includes('Pyromania') === false){
+		this.traits.push('Pyromania');
+		this.totalDark++;
+		} else {
+			this.mentalAfflictions649b();
+		}
+		break;
+	}
+};
+
+Character.prototype.phobia649c = function(){
+	var phobia = ['Ablutophobia', 'Acarophobia', 'Acerophobia', 'Acousticophobia', 'Acrophobia', 'Aerophobia', 'Aeroacrophobia', 'Aeronausiphobia', 'Agateophobia', 'Agliophobia', 'Agoraphobia', 'Agraphobia', 'Agrizoophobia', 'Agyrophobia', 'Aichmophobia', 'Albuminurophobia', 'Alektorophobia', 'Alliumphobia', 'Allodoxaphobia', 'Altophobia', 'Amathophobia', 'Amaxophobia', 'Amnesiphobia', 'Amychophobia', 'Anablephobia', 'Ancraophobia ', 'Androphobia', 'Anginophobia', 'Angrophobia', 'Ankylophobia', 'Anthophobia', 'Anthropophobia.', 'Antlophobia', 'Anuptaphobia', 'Apeirophobia', 'Aphenphosmphobia ', 'Apiphobia', 'Apotemnophobia', 'Arachibutyrophobia', 'Arachnephobia', 'Arithmophobia', 'Arrhenphobia', 'Arsonphobia', 'Asthenophobia', 'Astrapophobia', 'Astrophobia', 'Asymmetriphobia', 'Ataxiophobia', 'Ataxophobia', 'Atelophobia', 'Atephobia', 'Athazagoraphobia', 'Atychiphobia', 'Aulophobia', 'Aurophobia', 'Auroraphobia', 'Autodysomophobia', 'Automatonophobia', 'Automysophobia', 'Autophobia', 'Aviophobia ', 'Bacillophobia', 'Bacteriophobia', 'Ballistophobia', 'Bolshephobia', 'Barophobia', 'Basophobia ', 'Bathmophobia', 'Bathophobia', 'Batophobia', 'Batrachophobia', 'Belonephobia', 'Bibliophobia', 'Blennophobia', 'Bogyphobia', 'Botanophobia', 'Bromidrosiphobia ', 'Brontophobia', 'Bufonophobia', 'Cacophobia', 'Cainophobia ', 'Caligynephobia', 'Carcinophobia', 'Cardiophobia', 'Carnophobia', 'Catagelophobia', 'Catapedaphobia', 'Cathisophobia', 'Catoptrophobia', 'Cenophobia', 'Cheimatophobia', 'Chemophobia', 'Cherophobia', 'Chionophobia', 'Chiraptophobia', 'Chirophobia', 'Chiroptophobia', 'Cholerophobia', 'Chorophobia', 'Chrematophobia', 'Chromatophobia', 'Chronophobia', 'Chronomentrophobia', 'Claustrophobia', 'Cleithrophobia ', 'Cleptophobia', 'Climacophobia', 'Clinophobia', 'Clithrophobia ', 'Cnidophobia', 'Cometophobia', 'Coimetrophobia', 'Coitophobia', 'Contreltophobia', 'Coprastasophobia', 'Coprophobia', 'Consecotaleophobia', 'Coulrophobia', 'Counterphobia', 'Cremnophobia', 'Cryophobia', 'Crystallophobia', 'Cyclophobia', 'Kymophobia', 'Cynophobia', 'Cypridophobia ', 'Decidophobia', 'Defecaloesiophobia', 'Deipnophobia', 'Dementophobia', 'Demonophobia', 'Dendrophobia', 'Dentophobia', 'Dermatophobia', 'Dermatophobia  ', 'Dextrophobia', 'Diabetophobia', 'Didaskaleinophobia', 'Dikephobia', 'Dinophobia', 'Diplophobia', 'Dipsophobia', 'Dishabiliophobia', 'Disposophobia', 'Domatophobia', 'Doraphobia', 'Doxophobia', 'Dromophobia', 'Dutchphobia', 'Dysmorphophobia', 'Dystychiphobia', 'Ecclesiophobia', 'Ecophobia', 'Eisoptrophobia', 'Electrophobia', 'Eleutherophobia', 'Emetophobia', 'Enetophobia', 'Enochlophobia', 'Enissophobia', 'Entomophobia', 'Eosophobia', 'Ephebiphobia', 'Epistaxiophobia', 'Epistemophobia', 'Equinophobia', 'Eremophobia', 'Ereuthrophobia', 'Ergophobia', 'Erotophobia', 'Euphobia', 'Eurotophobia', 'Erythrophobia ', 'Febriphobia ', 'Felinophobia', 'Gamophobia', 'Geliophobia', 'Gelotophobia', 'Geniophobia', 'Genophobia', 'Genuphobia', 'Gephyrophobia ', 'Gerascophobia', 'Gerontophobia', 'Geumaphobia ', 'Glossophobia', 'Gnosiophobia', 'Graphophobia', 'Gymnophobia', 'Gynophobia', 'Hadephobia', 'Hagiophobia', 'Hamartophobia', 'Harpaxophobia', 'Hedonophobia', 'Heliophobia', 'Hellenologophobia', 'Helminthophobia', 'Hemophobia ', 'Heresyphobia ', 'Herpetophobia', 'Heterophobia', 'Hexakosioihexekontahexaphobia', 'Hierophobia', 'Hippophobia', 'Hobophobia', 'Hodophobia', 'Hormephobia', 'Homilophobia', 'Hominophobia', 'Homophobia', 'Hoplophobia', 'Hydrargyophobia', 'Hydrophobia', 'Hydrophobophobia', 'Hyelophobia ', 'Hygrophobia', 'Hylephobia', 'Hylophobia', 'Hypengyophobia ', 'Hypnophobia', 'Hypsiphobia', 'Iatrophobia', 'Ichthyophobia', 'Ideophobia', 'Illyngophobia', 'Iophobia', 'Insectophobia ', 'Isolophobia', 'Isopterophobia', 'Ithyphallophobia', 'Kainolophobia ', 'Kakorrhaphiophobia', 'Katagelophobia', 'Kathisophobia', 'Katsaridaphobia', 'Kenophobia', 'Keraunophobia ', 'Kinetophobia ', 'Kleptophobia', 'Koinoniphobia', 'Kolpophobia', 'Kopophobia', 'Kosmikophobia', 'Kymophobia', 'Kynophobia', 'Kyphophobia', 'Lachanophobia', 'Laliophobia', 'Lepraphobia', 'Leukophobia', 'Levophobia', 'Ligyrophobia', 'Lilapsophobia', 'Limnophobia', 'Linonophobia', 'Liticaphobia', 'Lockiophobia', 'Logophobia', 'Luiphobia', 'Lutraphobia', 'Lygophobia', 'Lyssophobia', 'Macrophobia', 'Mageirocophobia', 'Maieusiophobia', 'Malaxophobia', 'Maniaphobia', 'Mastigophobia', 'Mechanophobia', 'Medomalacuphobia', 'Medorthophobia', 'Megalophobia', 'Melissophobia', 'Melanophobia', 'Melophobia', 'Meningitophobia', 'Menophobia', 'Merinthophobia', 'Metallophobia', 'Metathesiophobia', 'Meteorophobia', 'Methyphobia', 'Metrophobia', 'Microphobia', 'Mysophobia', 'Mnemophobia', 'Molysmophobia', 'Monophobia', 'Monopathophobia', 'Motorphobia', 'Mottephobia', 'Musophobia', 'Mycophobia', 'Mycrophobia', 'Myctophobia', 'Myrmecophobia', 'Mythophobia', 'Nebulaphobia', 'Necrophobia', 'Nelophobia', 'Neopharmaphobia', 'Neophobia', 'Nephophobia', 'Noctiphobia', 'Nomatophobia', 'Nosocomephobia', 'Nosophobia', 'Nostophobia', 'Novercaphobia', 'Nudophobia', 'Numerophobia', 'Nyctohylophobia', 'Nyctophobia', 'Obesophobia', 'Ochlophobia', 'Ochophobia', 'Octophobia ', 'Odontophobia', 'Odynophobia', 'Oenophobia', 'Olfactophobia', 'Ombrophobia', 'Ommetaphobia', 'Omphalophobia', 'Oneirophobia', 'Oneirogmophobia', 'Onomatophobia', 'Ophidiophobia', 'Ophthalmophobia', 'Opiophobia', 'Optophobia', 'Ornithophobia', 'Orthophobia', 'Osphresiophobia', 'Ostraconophobia', 'Ouranophobia', 'Pagophobia', 'Panthophobia', 'Panophobia', 'Papaphobia', 'Papyrophobia', 'Paralipophobia', 'Paraphobia', 'Parasitophobia', 'Paraskavedekatriaphobia', 'Parthenophobia', 'Pathophobia', 'Patroiophobia', 'Parturiphobia', 'Peccatophobia', 'Pediophobia', 'Pedophobia', 'Peladophobia', 'Pellagrophobia', 'Peniaphobia', 'Phagophobia', 'Phalacrophobia', 'Phallophobia', 'Pharmacophobia', 'Phasmophobia', 'Phengophobia', 'Philematophobia', 'Philophobia', 'Philosophobia', 'Phobophobia', 'Photoaugliaphobia', 'Photophobia', 'Phonophobia', 'Phronemophobia', 'Phthiriophobia', 'Phthisiophobia', 'Placophobia', 'Plutophobia', 'Pluviophobia', 'Pneumatiphobia', 'Pnigerophobia', 'Pogonophobia', 'Poliosophobia', 'Politicophobia', 'Polyphobia', 'Poinephobia', 'Ponophobia', 'Porphyrophobia', 'Potamophobia', 'Potophobia', 'Pharmacophobia', 'Proctophobia', 'Prosophobia', 'Psellismophobia', 'Psychophobia', 'Psychrophobia', 'Pteromerhanophobia', 'Pteronophobia', 'Pupaphobia ', 'Pyrexiophobia', 'Pyrophobia', 'Quadraphobia', 'Quadriplegiphobia', 'Quintaphobia', 'Radiophobia', 'Ranidaphobia', 'Rectophobia', 'Rhabdophobia', 'Rhypophobia', 'Rhytiphobia', 'Rupophobia', 'Russophobia', 'Satanophobia', 'Scabiophobia', 'Scatophobia', 'Scelerophibia', 'Sciophobia', 'Scoleciphobia', 'Scolionophobia', 'Scopophobia', 'Scotomaphobia', 'Scotophobia', 'Scriptophobia', 'Selachophobia', 'Selaphobia', 'Selenophobia', 'Seplophobia', 'Hippopotomonstrosesquippedaliophobia', 'Siderodromophobia', 'Siderophobia', 'Sinistrophobia', 'Sinophobia', 'Cibophobia ', 'Soceraphobia', 'Social Phobia', 'Sociophobia', 'Somniphobia', 'Sophophobia', 'Soteriophobia ', 'Spacephobia', 'Spectrophobia', 'Spermatophobia', 'Spheksophobia', 'Stasibasiphobia', 'Stenophobia', 'Stygiophobia', 'Suriphobia', 'Symbolophobia', 'Symmetrophobia', 'Syngenesophobia', 'Syphilophobia', 'Tachophobia', 'Taeniophobia', 'Taphephobia', 'Tapinophobia', 'Taurophobia', 'Technophobia', 'Teleophobia', 'Telephonophobia', 'Teratophobia', 'Testophobia', 'Tetanophobia', 'Textophobia', 'Thaasophobia', 'Thalassophobia', 'Thanatophobia ', 'Theatrophobia', 'Theologicophobia', 'Theophobia', 'Thermophobia', 'Tocophobia', 'Tomophobia', 'Tonitrophobia', 'Topophobia', 'Toxicophobia', 'Traumatophobia', 'Tremophobia', 'Trichinophobia', 'Trichopathophobia', 'Triskaidekaphobia', 'Tropophobia', 'Trypanophobia', 'Tuberculophobia', 'Tyrannophobia', 'Uranophobia', 'Urophobia', 'Vaccinophobia', 'Venustraphobia', 'Verbophobia', 'Verminophobia', 'Vestiphobia', 'Virginitiphobia', 'Vitricophobia', 'Walloonphobia', 'Wiccaphobia', 'Xanthophobia', 'Xenoglossophobia', 'Xenophobia', 'Xerophobia', 'Xylophobia', 'Xyrophobia', 'Zelophobia', 'Zeusophobia', 'Zemmiphobia', 'Zoophobia', 'Again'];
+	var chosenPhobia = phobia.randomElement();
+	var d3p1 = Math.floor(Math.random() * (4 -2 + 1) + 2);
+	if(chosenPhobia === "Again"){
+		for(i=0; i < d3p1; i++){
+			this.phobia649c();
+		}
+	} else if(this.traits.includes(chosenPhobia) || this.traits.includes('Again')){
+		this.phobia649c();
+	} else {
+		this.traits.push(chosenPhobia);
+	}
+};
+
+Character.prototype.allergy649d = function(){
+	var allergy = ['Fur', 'Dust', 'Insect Bites and Stings', 'Common Food Type', 'Unusual Food Type', 'Exotic Food Type', 'Common Medicine Type', 'Unusual Medicine Type', 'Mold', 'Magic'];
+	var allergic = allergy.randomElement();
+	var chosenAllergy = "Allergic to " + allergic;
+	 if(this.traits.includes(chosenAllergy) === true){
+		this.allergy649d();
+	} else {
+		this.traits.push(chosenAllergy);
+	}
+};
+
+Character.prototype.behaviorTag649e = function(){
+	console.log('Behavior Tag');
+
+};
+
+Character.prototype.sexualDisorder649f = function(){
+	var sexualDisordersArry = ['Transsexualism*', 'Asexualism*', 'Shyness Around the Opposite Sex*', 'Homosexuality*', 'Bisexuality*', 'Transvestitism*', 'LikesSex', 'Sadism*', 'Masochism*', 'Prudish*', 'Voyeurism*', "Fetishism: Women's Clothing*", "Fetishism: Men's Clothing*", "Fetishism: Shoes*", "Fetishism: Hair*", "Fetishism: Animals*", 'Necrophilia*'];
+	var sexualDisorder = sexualDisordersArry.randomElement();
+		if(sexualDisorder === "LikesSex"){
+			if (this.charGender === 'Male' && this.traits.includes('Satyrism*') !== true){
+				this.traits.push('Satyrism*');
+			} else if (this.charGender === "Female" && this.traits.includes('Nyphomania*')){
+				this.traits.push('Nyphomania*');
+			}
+		}
+		 if(this.traits.includes(sexualDisorder)){
+			this.sexualDisorder649f();
+		} else if (sexualDisorder === "LikesSex"){
+		} else {
+			this.traits.push(sexualDisorder);
+		}
+		if(this.playerNote.includes("* These traits are indented for responsible roleplayers. Flippant, careless, or callous portrayal of these traits may embarrass, annoy, or offend other players or the GM. If you feel you cannot role play these traits responsibly please either ignore them or generate a new character.") === false){
+			this.playerNote.push("* These traits are indented for responsible roleplayers. Flippant, careless, or callous portrayal of these traits may embarrass, annoy, or offend other players or the GM. If you feel you cannot role play these traits responsibly please either ignore them or generate a new character ");
+		}
+		if (sexualDisorder === "LikesSex"){
+
+		}
 };
