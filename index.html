@@ -1,98 +1,113 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-<link href="assets/styles/style.css" rel="stylesheet" type="text/css" />
-
 <meta charset="utf-8">
-<title>Christopher Beckman - Home</title>
+<title>Heroes of Legend Character Generator</title>
+<link rel="stylesheet" href="styles/bootstrap/bootstrap.css"/>
+<link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css"/>
+<link rel="stylesheet" href="styles/bootstrap/bootstrap-theme.css"/>
+<link rel="stylesheet" href="styles/bootstrap/bootstrap-theme.min.css"/>
+<script src="scripts/jquery-3.1.0.min.js"></script>
+<link rel="stylesheet" href="styles/style.css"/>
 </head>
 
 <body>
+
 <div id="body">
 
-	<nav id="nav">
-	 	<ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="views/contact_me.html">CONTACT ME</a></li>
-            <li><a href="views/about_me.html">ABOUT ME</a></li>
-            <li><a href="#">PORTFOLIO</a>
-            <ul><li><a href="views/Portfolio/web_design.html">WEB DESIGN</a></li>
-            <li><a href="views/Portfolio/graphic_design.html">GRAPHIC DESIGN</a></li> 
-            <li><a href="views/Portfolio/audio_video.html">AUDIO/VISUAL</a></li>
-            <li><a href="views/Portfolio/game_design.html">GAME DESIGN</a></li>
-            </ul></li>
+<div class="container">
 
-     	</ul>
-    </nav>
-    
-<div class="content">
-<h1> Christopher Beckman </h1>
-<p> Welcome to my Portfolio Website. Make yourself at home and feel free to look around.  </p>
+<div class="row">
+<div class="col-lg-12">
+<label>Enter Character Name</label><br><br>
+</div>
+</div>
 
-	<div class="row">
-    	<div class="col-sm-3 stuff">
-        	<h3> <img src="assets/img/Christopher Beckman 2.jpg" class="img-responsive"> </h3>
-           	<h4> Skill Set </h4>
-            <ul>
-            <li>Web Design</li>
-                <ul>
-                    <li> JavaScript </li>
-                    <li> PHP </li> 
-                    <li> SQL </li>
-                    <li> HTML 5 </li>
-                    <li> CSS 3 </li>
-                </ul>
-            <li>Graphic Design </li>
-            	<ul> 
-                	<li> Photoshop </li>
-                    <li> InDesign </li>
-                    <li> Illustrator </li>
-                </ul>
-            	
-            <li>Game Design </li>
-                <ul>
-                    <li>Unreal Engine 4</li>
-                    <li>UDK</li>
-                    <li>Level Design</li>
-                    <li>Unity</li>
-                </ul>
-            <li>Audio Production </li>
-            	<ul>
-                	<li> Audio Capture </li>
-                    <li> Post Production </li>
-                    <li> Sound Design </li>
-                 </ul>
-            <li>Video Production </li>
-            	<ul> 
-                	<li> Post Production </li>
-                    <li> Studio and On-Location Capture </li>
-                </ul>
-            <li>Creative Writing</li>
-            </ul>
-        </div>
-        
-        <div class="col-sm-9 stuff">
-            <div id="crossfade">
-             <img src="assets/img/main_page_scroll/galaxy_860x530.jpg" class="img-responsive"alt="Image 1"> 
-              <img src="assets/img/main_page_scroll/marill_860x530.jpg" class="img-responsive" alt="Image 2">
-              <img src="assets/img/main_page_scroll/psychosis_860x530.jpg" class="img-responsive" alt="Image 3">
-              <img src="assets/img/main_page_scroll/pereigrination_860x530.jpg" class="img-responsive" alt="Image 4">
-			</div>
+<div class="row">
+<div class="col-lg-12">
+<input class="name" id="charName" type="text"> </input><br><br>
+</div>
+</div>
 
-        </div> 
-       
-	</div>   
-    </div>
-    <br>
+<div class="row">
+<div class="col-lg-12">
+<button class="name_submit" type="submit" onClick="player.generateCharacter();" value="GENERATE"> GENERATE </button>
+</div>
+</div>
 
-    
-<script src="scripts/scripts.js" type="text/javascript"> </script>
+<br>
+<div class="row">
+<div class="col-sm-8">
+<label>Character Information</label>
+	<div id="characterInfo"> 
+	</div>
+<br>
+<label>Special Abilties</label>
+<div id="specialAbilities"> </div>
+</div>
+<div class="col-sm-4">
+	<label>Attribute Bonuses</label>
+	<ul id ="attirubteBonus"> </ul>
+	<label>Skill List</label>
+	<ul id="skillList"></ul>
+</div>
+</div>
+
+
+
+<br>
+<div class="row">
+<div class="col-sm-8">
+<label>Birth Information</label>
+<div id="birthInfo"> </div>
+</div>
+<div class="col-sm-4">
+<label>Traits</label>
+<ul id="traitInfo"> </ul>
+</div>
+</div>
+
+<br>
+<div class="row">
+<div class="col-sm-12">
+<label>Birth Events</label>
+<div id="birthEvent"> </div>
+<br> 
+
+<!-- <label>Childhood Events</label>
+<div id="childhoodEvent"> </div>
+<br>
+<label>Adolescent Events</label>
+<div id="adolescentEvent"> </div>
+<br>
+<label>Adult Events</label>
+<div id="adultEvent"> </div>
+<br> -->
+</div>
+
+</div>
+
+
+<div class="row">
+<div class="col-sm-12">
+<label>NPC Information</label>
+<div id="npcInfo"></div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+<script src="scripts/playerStart.js" type="text/javascript"> </script>
+<script src="scripts/100s.js" type="text/javascript"> </script>
+<script src="scripts/200s.js" type="text/javascript"> </script>
+<script src="scripts/alignment.js" type="text/javascript"> </script>
+<script src="scripts/400s.js" type="text/javascript"> </script>
+<script src="scripts/500s.js" type="text/javascript"> </script>
+<script src="scripts/700s.js" type="text/javascript"> </script>
+<script src="scripts/800s.js" type="text/javascript"> </script>
+<script src="scripts/quick_functions.js" type="text/javascript"> </script>
+<script src="scripts/generateNPC.js" type="text/javascript"> </script>
 </body>
 </html>
